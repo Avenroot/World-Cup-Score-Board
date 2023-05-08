@@ -2,9 +2,9 @@ program WorldCupScoreboard;
 
 uses
   Vcl.Forms,
-  Main in 'Main.pas' {frmMain},
-  Scoreboard in 'Scoreboard.pas' {frmScoreboard},
-  Settings in 'Settings.pas' {frmSettings};
+  MainForm in 'UI\MainForm.pas' {frmMain},
+  ScoreboardForm in 'UI\ScoreboardForm.pas' {frmScoreboard},
+  SettingsForm in 'UI\SettingsForm.pas' {frmSettings};
 
 {$R *.res}
 
