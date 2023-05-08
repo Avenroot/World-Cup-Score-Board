@@ -1,4 +1,4 @@
-unit Scoreboard;
+unit ScoreboardForm;
 
 interface
 
