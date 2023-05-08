@@ -98,15 +98,15 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Main.pas">
+        <DCCReference Include="UI\MainForm.pas">
             <Form>frmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Scoreboard.pas">
+        <DCCReference Include="UI\ScoreboardForm.pas">
             <Form>frmScoreboard</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Settings.pas">
+        <DCCReference Include="UI\SettingsForm.pas">
             <Form>frmSettings</Form>
             <FormType>dfm</FormType>
         </DCCReference>

@@ -1,9 +1,9 @@
-object frmSettings: TfrmSettings
+object frmScoreboard: TfrmScoreboard
   Left = 0
   Top = 0
-  Caption = 'Settings'
-  ClientHeight = 222
-  ClientWidth = 418
+  Caption = 'Scoreboard'
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
