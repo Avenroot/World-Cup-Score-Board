@@ -5,6 +5,7 @@ interface
 uses
   DUnitX.TestFramework,
   System.SysUtils,
+  System.Generics.Collections,
   ScoreboardInterface,
   ScoreboardClass,
   TeamType,
@@ -67,44 +68,63 @@ var
 begin
   Game := FScoreboard.NewGame('Home', 'Away');
   FScoreboard.FinishGame(Game);
-  Assert.AreEqual(0, Length(FScoreboard.GetGamesSummary));
+  Assert.AreEqual(0, FScoreboard.GetGamesSummary.Count);
 end;
 
 procedure TScoreboardTests.TestGetGamesSummary;
 var
-  Game1, Game2, Game3: TGame;
-  Summary: TArray<TGame>;
+  Game1, Game2, Game3, Game4, Game5: TGame;
+  GameSummary: TList<TGame>;
 begin
-  Game1 := FScoreboard.NewGame('Home1', 'Away1');
-  Game2 := FScoreboard.NewGame('Home2', 'Away2');
-  Game3 := FScoreboard.NewGame('Home3', 'Away3');
+  Game1 := FScoreboard.NewGame('Mexico', 'Canada');
+  Game2 := FScoreboard.NewGame('Spain', 'Brazil');
+  Game3 := FScoreboard.NewGame('Germany', 'France');
+  Game4 := FScoreboard.NewGame('Uruguay', 'Italy');
+  Game5 := FScoreboard.NewGame('Argentina', 'Australia');
 
-  FScoreboard.UpdateScore(Game1, 2, 1);
-  FScoreboard.UpdateScore(Game2, 1, 1);
-  FScoreboard.UpdateScore(Game3, 3, 2);
+  FScoreboard.UpdateScore(Game1, 0, 5);
+  FScoreboard.UpdateScore(Game2, 10, 2);
+  FScoreboard.UpdateScore(Game3, 2, 2);
+  FScoreboard.UpdateScore(Game4, 6, 6);
+  FScoreboard.UpdateScore(Game5, 3, 1);
 
-  Summary := FScoreboard.GetGamesSummary;
+  GameSummary := FScoreboard.GetGamesSummary;
 
-  Assert.AreEqual(3, Length(Summary));
-  Assert.AreEqual('Home3', Summary[0].HomeTeam.Name);
-  Assert.AreEqual(3, Summary[0].HomeScore);
-  Assert.AreEqual('Away3', Summary[0].AwayTeam.Name);
-  Assert.AreEqual(2, Summary[0].AwayScore);
-  Assert.AreEqual(True, Summary[0].IsInProgress);
+  try
+    Assert.AreEqual(5, GameSummary.Count);
 
-  Assert.AreEqual('Home1', Summary[1].HomeTeam.Name);
-  Assert.AreEqual(2, Summary[1].HomeScore);
-  Assert.AreEqual('Away1', Summary[1].AwayTeam.Name);
-  Assert.AreEqual(1, Summary[1].AwayScore);
-  Assert.AreEqual(False, Summary[1].IsInProgress);
+    Assert.AreEqual('Uruguay', GameSummary[0].HomeTeam.Name);
+    Assert.AreEqual(6, GameSummary[0].HomeScore);
+    Assert.AreEqual('Italy', GameSummary[0].AwayTeam.Name);
+    Assert.AreEqual(6, GameSummary[0].AwayScore);
 
-  Assert.AreEqual('Home2', Summary[2].HomeTeam.Name);
-  Assert.AreEqual(1, Summary[2].HomeScore);
-  Assert.AreEqual('Away2', Summary[2].AwayTeam.Name);
-  Assert.AreEqual(1, Summary[2].AwayScore);
-  Assert.AreEqual(False, Summary[2].IsInProgress);
+    Assert.AreEqual('Spain', GameSummary[1].HomeTeam.Name);
+    Assert.AreEqual(10, GameSummary[1].HomeScore);
+    Assert.AreEqual('Brazil', GameSummary[1].AwayTeam.Name);
+    Assert.AreEqual(2, GameSummary[1].AwayScore);
+
+    Assert.AreEqual('Mexico', GameSummary[2].HomeTeam.Name);
+    Assert.AreEqual(0, GameSummary[2].HomeScore);
+    Assert.AreEqual('Canada', GameSummary[2].AwayTeam.Name);
+    Assert.AreEqual(5, GameSummary[2].AwayScore);
+
+    Assert.AreEqual('Argentina', GameSummary[3].HomeTeam.Name);
+    Assert.AreEqual(3, GameSummary[3].HomeScore);
+    Assert.AreEqual('Australia', GameSummary[3].AwayTeam.Name);
+    Assert.AreEqual(1, GameSummary[3].AwayScore);
+
+    Assert.AreEqual('Germany', GameSummary[4].HomeTeam.Name);
+    Assert.AreEqual(2, GameSummary[4].HomeScore);
+    Assert.AreEqual('France', GameSummary[4].AwayTeam.Name);
+    Assert.AreEqual(2, GameSummary[4].AwayScore);
+
+
+  finally
+    GameSummary.Free;
+  end;
 
 end;
+
 
 initialization
   TDUnitX.RegisterTestFixture(TScoreboardTests);

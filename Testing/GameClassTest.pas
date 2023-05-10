@@ -27,10 +27,6 @@ type
     [Test]
     procedure TestAwayScore;
     [Test]
-    procedure TestIsInProgress;
-    [Test]
-    procedure TestStartOrder;
-    [Test]
     procedure TestTotalScore;
   end;
 
@@ -68,18 +64,6 @@ procedure TGameClassTest.TestAwayScore;
 begin
   FGame.AwayScore := 3;
   Assert.AreEqual(3, FGame.AwayScore);
-end;
-
-procedure TGameClassTest.TestIsInProgress;
-begin
-  FGame.IsInProgress := True;
-  Assert.IsTrue(FGame.IsInProgress);
-end;
-
-procedure TGameClassTest.TestStartOrder;
-begin
-  FGame.StartOrder := 1;
-  Assert.AreEqual(1, TGame(FGame).StartOrder);
 end;
 
 procedure TGameClassTest.TestTotalScore;
