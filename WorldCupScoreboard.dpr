@@ -4,7 +4,6 @@ uses
   Vcl.Forms,
   MainForm in 'UI\MainForm.pas' {frmMain},
   ScoreboardForm in 'UI\ScoreboardForm.pas' {frmScoreboard},
-  SettingsForm in 'UI\SettingsForm.pas' {frmSettings},
   GameClass in 'Games\GameClass.pas',
   GameFactoryClass in 'Games\GameFactoryClass.pas',
   GameInterface in 'Games\GameInterface.pas',
@@ -27,7 +26,6 @@ begin
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Aqua Graphite');
   Application.CreateForm(TfrmMain, frmMain);
-  Application.CreateForm(TfrmSettings, frmSettings);
   Application.CreateForm(TfrmScoreboard, frmScoreboard);
   Application.Run;
 end.

@@ -9,11 +9,9 @@ uses
 type
   TfrmMain = class(TForm)
     btnScoreboard: TButton;
-    btnSettings: TButton;
     btnClose: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnScoreboardClick(Sender: TObject);
-    procedure btnSettingsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,7 +23,7 @@ var
 
 implementation
 
-uses ScoreboardForm, SettingsForm;
+uses ScoreboardForm;
 
 {$R *.dfm}
 
@@ -36,19 +34,7 @@ end;
 
 procedure TfrmMain.btnScoreboardClick(Sender: TObject);
 begin
-//  if not Assigned(frmScoreboard) then
-//    frmScoreboard.Create(self);
-
   frmScoreBoard.Show;
-end;
-
-procedure TfrmMain.btnSettingsClick(Sender: TObject);
-begin
-//  if not Assigned(frmSettings) then
-//    frmSettings.Create(self);
-
-  frmSettings.Show;
-
 end;
 
 end.

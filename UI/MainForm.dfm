@@ -15,29 +15,20 @@ object frmMain: TfrmMain
   TextHeight = 15
   object btnScoreboard: TButton
     Left = 128
-    Top = 40
+    Top = 64
     Width = 145
     Height = 25
     Caption = 'Scoreboard'
     TabOrder = 0
     OnClick = btnScoreboardClick
   end
-  object btnSettings: TButton
-    Left = 128
-    Top = 92
-    Width = 145
-    Height = 25
-    Caption = 'Settings'
-    TabOrder = 1
-    OnClick = btnSettingsClick
-  end
   object btnClose: TButton
     Left = 128
-    Top = 144
+    Top = 120
     Width = 145
     Height = 25
     Caption = 'Close'
-    TabOrder = 2
+    TabOrder = 1
     OnClick = btnCloseClick
   end
 end
