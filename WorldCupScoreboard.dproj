@@ -113,10 +113,6 @@
             <Form>frmScoreboard</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UI\SettingsForm.pas">
-            <Form>frmSettings</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Games\GameClass.pas"/>
         <DCCReference Include="Games\GameFactoryClass.pas"/>
         <DCCReference Include="Games\GameInterface.pas"/>
