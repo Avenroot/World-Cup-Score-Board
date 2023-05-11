@@ -33,25 +33,34 @@ uses
   GameInterface,
   GameFactoryClass;
 
-procedure LoadExampleGames(var Scoreboard: TScoreboard);
+function LoadExampleGames: TScoreboard;
 
 implementation
 
-procedure LoadExampleGames(var Scoreboard: TScoreboard);
+function LoadExampleGames: TScoreboard;
 var
   Game1, Game2, Game3, Game4, Game5: TGame;
+  lScoreboard: TScoreboard;
 begin
-  Game1 := Scoreboard.NewGame('Mexico', 'Canada');
-  Game2 := Scoreboard.NewGame('Spain', 'Brazil');
-  Game3 := Scoreboard.NewGame('Germany', 'France');
-  Game4 := Scoreboard.NewGame('Uruguay', 'Italy');
-  Game5 := Scoreboard.NewGame('Argentina', 'Australia');
+  lScoreboard := TScoreboard.Create;
+  try
+    Game1 := lScoreboard.NewGame('Mexico', 'Canada');
+    Game2 := lScoreboard.NewGame('Spain', 'Brazil');
+    Game3 := lScoreboard.NewGame('Germany', 'France');
+    Game4 := lScoreboard.NewGame('Uruguay', 'Italy');
+    Game5 := lScoreboard.NewGame('Argentina', 'Australia');
 
-  Scoreboard.UpdateScore(Game1, 0, 5);
-  Scoreboard.UpdateScore(Game2, 10, 2);
-  Scoreboard.UpdateScore(Game3, 2, 2);
-  Scoreboard.UpdateScore(Game4, 6, 6);
-  Scoreboard.UpdateScore(Game5, 3, 1);
+    lScoreboard.UpdateScore(Game1, 0, 5);
+    lScoreboard.UpdateScore(Game2, 10, 2);
+    lScoreboard.UpdateScore(Game3, 2, 2);
+    lScoreboard.UpdateScore(Game4, 6, 6);
+    lScoreboard.UpdateScore(Game5, 3, 1);
+
+    Result := lScoreboard
+  except
+    lScoreboard.Free;
+    raise;
+  end;
 end;
 
 end.

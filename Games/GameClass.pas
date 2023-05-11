@@ -27,7 +27,6 @@ type
     function GetTotalScore: Integer;
     property HomeTeam: TTeam read GetHomeTeam;
     property AwayTeam: TTeam read GetAwayTeam;
-    property TotalScore: Integer read GetTotalScore;
     property HomeScore: Integer read GetHomeScore write SetHomeScore;
     property AwayScore: Integer read GetAwayScore write SetAwayScore;
   end;

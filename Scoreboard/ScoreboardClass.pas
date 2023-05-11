@@ -128,17 +128,8 @@ end;
 
 
 function TScoreboard.GetGamesSummary: TList<TGame>;
-var
-  FinishedGames: TList<TGame>;
-  InProgressGames: TList<TGame>;
-  SummaryGames: TList<TGame>;
-  I: Integer;
-  TotalScore: Integer;
-  Game: TGame;
 begin
-
   Result := GetGamesOrderedByTotalScore;
-
 end;
 
 

@@ -11,6 +11,7 @@ object frmSettings: TfrmSettings
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  StyleName = 'Aqua Graphite'
   TextHeight = 15
   object lblSpeedOfSim: TLabel
     Left = 84

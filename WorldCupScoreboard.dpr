@@ -15,15 +15,19 @@ uses
   TeamType in 'Games\TeamType.pas',
   GameFactoryClassTest in 'Testing\GameFactoryClassTest.pas',
   GameClassTest in 'Testing\GameClassTest.pas',
-  ScoreboardClassTests in 'Testing\ScoreboardClassTests.pas';
+  ScoreboardClassTests in 'Testing\ScoreboardClassTests.pas',
+  GameSummaryFrame in 'UI\GameSummaryFrame.pas' {fraGameSummary: TFrame},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Aqua Graphite');
   Application.CreateForm(TfrmMain, frmMain);
-  Application.CreateForm(TfrmScoreboard, frmScoreboard);
   Application.CreateForm(TfrmSettings, frmSettings);
+  Application.CreateForm(TfrmScoreboard, frmScoreboard);
   Application.Run;
 end.
