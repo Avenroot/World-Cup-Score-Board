@@ -19,5 +19,6 @@ Assumptions/notes:
 2. In the UI implementation I added some flag graphics to make thing visibly more appealing and make the scoreboard clearer. 
 3. I have included a exe file which you can run to see the UI application in action.  You will find the application in the \exe folder.
 4. I have included screenshots in the /media/screenshots folder of my testing results and the UI application I built.
+5. All test units are in the /Testing folder.
 
 
