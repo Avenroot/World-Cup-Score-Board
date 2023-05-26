@@ -97,7 +97,7 @@ begin
   Result := CompareValue(Right.GetTotalScore, Left.GetTotalScore);
   if Result = 0 then
   begin
-    Result := CompareValue(Right.GetHashCode, Left.GetHashCode);
+    Result := CompareValue(Right.StartOrder, Left.StartOrder);
   end;
 end;
 
